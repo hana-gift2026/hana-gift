@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تولدت مبارک حنا ❤️</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: #f9edf0;
+    font-family: Tahoma, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.card {
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    background: white;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 8px 30px #00000015;
+    padding-bottom: 30px;
+}
+
+.photo {
+    width: 100%;
+    height: auto;
+    max-height: 520px;
+    object-fit: cover;
+    display: block;
+}
+
+h1 {
+    color: #bd526f;
+    font-size: 23px;
+    margin: 24px 12px;
+}
+
+.message {
+    color: #77515c;
+    font-size: 14px;
+    margin: 0 15px 22px;
+}
+
+button {
+    background: #bd526f;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 28px;
+    font-size: 17px;
+    cursor: pointer;
+    font-family: inherit;
+}
+
+button:active {
+    transform: scale(.97);
+}
+
+.heart {
+    margin-top: 22px;
+    color: #bd526f;
+    font-size: 23px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <img src="our-photo.jpg"
+         alt="عکس دونفره ما"
+         class="photo">
+
+    <h1>تولدت مبارک حنا زیبای من ❤️</h1>
+
+    <p class="message">
+        یه پیام کوچولو از طرف من، فقط برای تو 🎂
+    </p>
+
+    <audio id="voice" src="voice.mp3" preload="none"></audio>
+
+    <button id="playButton" onclick="playVoice()">
+        ▶ پخش صدای من 🎧
+    </button>
+
+    <div class="heart">♥</div>
+
+</div>
+
+<script>
+function playVoice() {
+    const audio = document.getElementById('voice');
+    const button = document.getElementById('playButton');
+
+    if (audio.paused) {
+        audio.play().then(() => {
+            button.textContent = '❚❚ توقف صدا';
+        }).catch(() => {
+            alert('پخش صدا ممکن نشد. لطفاً دوباره امتحان کن.');
+        });
+    } else {
+        audio.pause();
+        button.textContent = '▶ پخش صدای من 🎧';
+    }
+}
+
+document.getElementById('voice').addEventListener('ended', () => {
+    document.getElementById('playButton').textContent =
+        '▶ پخش دوباره صدا 🎧';
+});
+</script>
+
+</body>
+</html>
